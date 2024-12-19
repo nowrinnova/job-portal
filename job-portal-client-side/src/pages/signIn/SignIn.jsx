@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../context/authContext/AuthContext'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios';
 export default function SignIn() {
   const {signInUser}=useContext(AuthContext)
   const navigate=useNavigate()
@@ -12,8 +12,11 @@ export default function SignIn() {
     const password=e.target.password.value
     console.log(email,password)
     signInUser(email,password)
-    .then(result=>{console.log(result.user)
-      navigate('/')
+    .then(result=>{console.log(result.user.email)
+      const user={email:email}
+      axios.post('http://localhost:5000/jwt',user,)
+      .then(data => console.log(data))
+      // navigate('/')
     })
     .catch(error=>{console.log(error.message)})
   }
