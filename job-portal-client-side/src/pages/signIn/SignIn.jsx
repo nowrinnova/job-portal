@@ -13,9 +13,9 @@ export default function SignIn() {
     console.log(email,password)
     signInUser(email,password)
     .then(result=>{console.log(result.user.email)
-      const user={email:email}
-      axios.post('http://localhost:5000/jwt',user,)
-      .then(data => console.log(data))
+      // const user={email:email}
+      // axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
+      // .then(data => console.log(data))
       // navigate('/')
     })
     .catch(error=>{console.log(error.message)})

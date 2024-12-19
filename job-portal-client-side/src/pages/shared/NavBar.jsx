@@ -19,7 +19,7 @@ export default function NavBar() {
         <NavLink to='/'>Home</NavLink>
       </li>
       <li>
-        <NavLink to=''>Item 2</NavLink>
+        <NavLink to='/myApplications'>My Applications</NavLink>
       </li>
       {user && 
       <li>

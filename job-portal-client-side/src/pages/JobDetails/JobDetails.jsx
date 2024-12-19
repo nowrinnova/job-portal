@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 
 export default function JobDetails() {
   const data=useLoaderData()
@@ -11,7 +11,7 @@ export default function JobDetails() {
       <h1>Category{category}</h1>
       <h1>job {title}</h1>
       <h1> jobType {jobType}</h1>
-      <button className='btn btn-warning m-4'> apply </button>
+      <Link to={`/jobApply/${_id}`}><button className='btn btn-warning m-4'> apply </button></Link>
     </div>
   )
 }
