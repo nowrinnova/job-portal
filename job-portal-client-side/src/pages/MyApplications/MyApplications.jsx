@@ -1,15 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import AuthContext from '../../context/authContext/AuthContext'
-import MyApplicationCart from './MyApplicationCart'
+// import MyApplicationCart from './MyApplicationCart'
+import axios from 'axios'
 
 
 export default function MyApplications() {
   const {user}=useContext(AuthContext)
+  console.log(user?.email)
   const [jobs,setJobs]=useState([])
   useEffect(()=>{
-    fetch(`http://localhost:5000/job-application?email=${user.email}`)
-    .then(res=>res.json())
-    .then(data=>setJobs(data))
+    // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+    // .then(res=>res.json())
+    // .then(data=>setJobs(data))
+    axios.get(`http://localhost:5000/job-application?email=${user?.email}`,{withCredentials:true})
+    .then(res=>{setJobs(res.data)})
+
   },[user.email])
   return (
     <div>
